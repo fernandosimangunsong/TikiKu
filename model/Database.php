@@ -1,6 +1,8 @@
 <?php
 
-class db {
+// include "model/Pegawai.php";
+
+class Database {
 	private $conn;
 	private $host;
 	private $user;

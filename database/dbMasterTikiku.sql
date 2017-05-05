@@ -206,3 +206,41 @@ CREATE TABLE `tarifPengirimanBarang` (
 --											;											
 											
 -- Dump completed on 2017-04-29 14:57:02
+
+
+DROP TABLE IF EXISTS `pegawaiTikiku`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `provpegawaiTikikuinsi` (
+  `nip` int(13) COLLATE utf8_unicode_ci NOT NULL,
+  `namaPegawai` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `alamatPegawai` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+
+  `kodeProvinsiPenempatan` char(2) COLLATE utf8_unicode_ci NOT NULL,
+  `kodeKotaKabupatenPenempatan` char(4) COLLATE utf8_unicode_ci NOT NULL,
+
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `isAdmin` int(1) COLLATE utf8_unicode_ci NOT NULL,
+ 
+  PRIMARY KEY (`nip`),
+  KEY `kodeProvinsiPenempatan_indx` (`kodeProvinsiPenempatan`),
+  KEY `kodeKotaKabupatenPenempatan_index` (`kodeKotaKabupatenPenempatan`),
+  CONSTRAINT `kodeProvinsiPegawaiPenempatan_id_foreign` FOREIGN KEY (`kodeProvinsiPenempatan`) REFERENCES `provinsi` (`kodeProvinsi`),
+  CONSTRAINT `kodeKotaKabupatenPegawaiPenempatan_id_foreign` FOREIGN KEY (`kodeKotaKabupatenPenempatan`) REFERENCES `kotaKabupaten` (`kodekotaKabupaten`)
+ 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `provinces`
+--
+
+-- Dump completed on 2017-04-29 14:57:02
+
+-- Dump completed on 2017-04-29 14:57:02
+
+--
+-- Table structure for table `kotaKabupaten`
+--
